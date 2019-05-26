@@ -2,7 +2,7 @@
 
 A stand-alone version of the pretrained MxNet Gluon ResNet models ported to Pytorch. Currently part of my model collection (https://github.com/rwightman/pytorch-image-models/blob/master/models/gluon_resnet.py)
 
-This model covers all variants of ResNet, ResNeXt, SE-ResNeXt, and SENet found in the gluon model zoo that
+This model covers all variants of ResNet, ResNeXt, SE-ResNeXt, and SENet found in the gluon model zoo (https://gluon-cv.mxnet.io/model_zoo/classification.html, https://github.com/dmlc/gluon-cv/blob/master/gluoncv/model_zoo/model_zoo.py) that
   * have stride in 3x3 conv layer of bottleneck
   * have conv-bn-act ordering
 
