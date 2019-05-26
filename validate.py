@@ -18,8 +18,8 @@ torch.backends.cudnn.benchmark = True
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Validation')
 parser.add_argument('data', metavar='DIR',
                     help='path to dataset')
-parser.add_argument('--model', '-m', metavar='MODEL', default='spnasnet1_00',
-                    help='model architecture (default: dpn92)')
+parser.add_argument('--model', '-m', metavar='MODEL', default='gluon_resnet50_v1d',
+                    help='model architecture (default: gluon_resnet50_v1d)')
 parser.add_argument('-j', '--workers', default=2, type=int, metavar='N',
                     help='number of data loading workers (default: 2)')
 parser.add_argument('-b', '--batch-size', default=256, type=int,

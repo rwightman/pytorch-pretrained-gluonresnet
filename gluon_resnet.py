@@ -14,13 +14,14 @@ except ImportError:
     from torch.utils.model_zoo import load_url as load_state_dict_from_url
 
 
-__all__ = ['GluonResNet', 'gluon_resnet18_v1b', 'gluon_resnet34_v1b', 'gluon_resnet50_v1b', 'gluon_resnet101_v1b',
+gluon_resnet_model_names = ['gluon_resnet18_v1b', 'gluon_resnet34_v1b', 'gluon_resnet50_v1b', 'gluon_resnet101_v1b',
     'gluon_resnet152_v1b', 'gluon_resnet50_v1c', 'gluon_resnet101_v1c', 'gluon_resnet152_v1c', 'gluon_resnet50_v1d',
     'gluon_resnet101_v1d', 'gluon_resnet152_v1d', 'gluon_resnet50_v1e', 'gluon_resnet101_v1e', 'gluon_resnet152_v1e',
     'gluon_resnet50_v1s', 'gluon_resnet101_v1s', 'gluon_resnet152_v1s', 'gluon_resnext50_32x4d',
     'gluon_resnext101_32x4d', 'gluon_resnext101_64x4d', 'gluon_resnext152_32x4d', 'gluon_seresnext50_32x4d',
     'gluon_seresnext101_32x4d', 'gluon_seresnext101_64x4d', 'gluon_seresnext152_32x4d', 'gluon_senet154'
 ]
+__all__ = ['GluonResNet', 'gluon_resnet_model_names'] + gluon_resnet_model_names
 
 
 model_urls = {
@@ -335,7 +336,7 @@ class GluonResNet(nn.Module):
         return x
 
 
-def gluon_resnet18_v1b( pretrained=False, **kwargs):
+def gluon_resnet18_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-18 model.
     """
     model = GluonResNet(BasicBlockGl, [2, 2, 2, 2], **kwargs)
@@ -346,7 +347,7 @@ def gluon_resnet18_v1b( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet34_v1b( pretrained=False, **kwargs):
+def gluon_resnet34_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-34 model.
     """
     model = GluonResNet(BasicBlockGl, [3, 4, 6, 3], **kwargs)
@@ -357,7 +358,7 @@ def gluon_resnet34_v1b( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet50_v1b( pretrained=False, **kwargs):
+def gluon_resnet50_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 6, 3], **kwargs)
@@ -368,7 +369,7 @@ def gluon_resnet50_v1b( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet101_v1b( pretrained=False, **kwargs):
+def gluon_resnet101_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], **kwargs)
@@ -378,7 +379,7 @@ def gluon_resnet101_v1b( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet152_v1b( pretrained=False, **kwargs):
+def gluon_resnet152_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     """
     model = GluonResNet(BottleneckGl, [3, 8, 36, 3], **kwargs)
@@ -389,7 +390,7 @@ def gluon_resnet152_v1b( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet50_v1c( pretrained=False, **kwargs):
+def gluon_resnet50_v1c(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     """
     model = GluonResNet(
@@ -400,7 +401,7 @@ def gluon_resnet50_v1c( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet101_v1c( pretrained=False, **kwargs):
+def gluon_resnet101_v1c(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     """
     model = GluonResNet(
@@ -411,7 +412,7 @@ def gluon_resnet101_v1c( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet152_v1c( pretrained=False, **kwargs):
+def gluon_resnet152_v1c(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     """
     model = GluonResNet(
@@ -423,7 +424,7 @@ def gluon_resnet152_v1c( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet50_v1d( pretrained=False, **kwargs):
+def gluon_resnet50_v1d(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     """
     model = GluonResNet(
@@ -435,7 +436,7 @@ def gluon_resnet50_v1d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet101_v1d( pretrained=False, **kwargs):
+def gluon_resnet101_v1d(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     """
     model = GluonResNet(
@@ -446,7 +447,7 @@ def gluon_resnet101_v1d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet152_v1d( pretrained=False, **kwargs):
+def gluon_resnet152_v1d(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     """
     model = GluonResNet(
@@ -458,7 +459,7 @@ def gluon_resnet152_v1d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet50_v1e( pretrained=False, **kwargs):
+def gluon_resnet50_v1e(pretrained=False, **kwargs):
     """Constructs a ResNet-50-V1e model. No pretrained weights for any 'e' variants
     """
     model = GluonResNet(
@@ -469,7 +470,7 @@ def gluon_resnet50_v1e( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet101_v1e( pretrained=False, **kwargs):
+def gluon_resnet101_v1e(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     """
     model = GluonResNet(
@@ -480,7 +481,7 @@ def gluon_resnet101_v1e( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet152_v1e( pretrained=False, **kwargs):
+def gluon_resnet152_v1e(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     """
     model = GluonResNet(
@@ -492,7 +493,7 @@ def gluon_resnet152_v1e( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet50_v1s( pretrained=False, **kwargs):
+def gluon_resnet50_v1s(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 6, 3], stem_width=64, deep_stem=True, **kwargs)
@@ -503,7 +504,7 @@ def gluon_resnet50_v1s( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet101_v1s( pretrained=False, **kwargs):
+def gluon_resnet101_v1s(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], stem_width=64, deep_stem=True, **kwargs)
@@ -514,7 +515,7 @@ def gluon_resnet101_v1s( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnet152_v1s( pretrained=False, **kwargs):
+def gluon_resnet152_v1s(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
     """
     model = GluonResNet(BottleneckGl, [3, 8, 36, 3], stem_width=64, deep_stem=True, **kwargs)
@@ -525,7 +526,7 @@ def gluon_resnet152_v1s( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnext50_32x4d( pretrained=False, **kwargs):
+def gluon_resnext50_32x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt50-32x4d model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 6, 3], cardinality=32, base_width=4, **kwargs)
@@ -536,7 +537,7 @@ def gluon_resnext50_32x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnext101_32x4d( pretrained=False, **kwargs):
+def gluon_resnext101_32x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt-101 model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], cardinality=32, base_width=4, **kwargs)
@@ -547,7 +548,7 @@ def gluon_resnext101_32x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnext101_64x4d( pretrained=False, **kwargs):
+def gluon_resnext101_64x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt-101 model.
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], cardinality=64, base_width=4, **kwargs)
@@ -558,7 +559,7 @@ def gluon_resnext101_64x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_resnext152_32x4d( pretrained=False, **kwargs):
+def gluon_resnext152_32x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt152-32x4d model.
     """
     model = GluonResNet(BottleneckGl, [3, 8, 36, 3], cardinality=32, base_width=4, **kwargs)
@@ -568,7 +569,7 @@ def gluon_resnext152_32x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_seresnext50_32x4d( pretrained=False, **kwargs):
+def gluon_seresnext50_32x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt50-32x4d model.
     """
     model = GluonResNet(
@@ -580,7 +581,7 @@ def gluon_seresnext50_32x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_seresnext101_32x4d( pretrained=False, **kwargs):
+def gluon_seresnext101_32x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt-101-32x4d model.
     """
     model = GluonResNet(
@@ -592,7 +593,7 @@ def gluon_seresnext101_32x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_seresnext101_64x4d( pretrained=False, **kwargs):
+def gluon_seresnext101_64x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt-101-64x4d model.
     """
     model = GluonResNet(
@@ -604,7 +605,7 @@ def gluon_seresnext101_64x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_seresnext152_32x4d( pretrained=False, **kwargs):
+def gluon_seresnext152_32x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt152-32x4d model.
     """
     model = GluonResNet(
@@ -615,7 +616,7 @@ def gluon_seresnext152_32x4d( pretrained=False, **kwargs):
     return model
 
 
-def gluon_senet154( pretrained=False, **kwargs):
+def gluon_senet154(pretrained=False, **kwargs):
     """Constructs an SENet-154 model.
     """
     model = GluonResNet(
