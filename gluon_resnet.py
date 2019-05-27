@@ -284,21 +284,21 @@ class GluonResNet(nn.Module):
                     use_se=False, avg_down=False, down_kernel_size=1, norm_layer=nn.BatchNorm2d):
         downsample = None
         if stride != 1 or self.inplanes != planes * block.expansion:
-            downsample_padding = _get_padding(down_kernel_size, stride)
             if avg_down:
                 avg_stride = stride if dilation == 1 else 1
+                conv_stride = 1
                 downsample_layers = [
-                    nn.AvgPool2d(avg_stride, avg_stride, ceil_mode=True, count_include_pad=False),
-                    nn.Conv2d(self.inplanes, planes * block.expansion, down_kernel_size,
-                              stride=1, padding=downsample_padding, bias=False),
-                    norm_layer(planes * block.expansion),
+                    nn.AvgPool2d(avg_stride, avg_stride, ceil_mode=True, count_include_pad=False)
                 ]
             else:
-                downsample_layers = [
-                    nn.Conv2d(self.inplanes, planes * block.expansion, down_kernel_size,
-                              stride=stride, padding=downsample_padding, bias=False),
-                    norm_layer(planes * block.expansion),
-                ]
+                conv_stride = stride
+                downsample_layers = []
+            downsample_padding = _get_padding(down_kernel_size, conv_stride)
+            downsample_layers += [
+                nn.Conv2d(self.inplanes, planes * block.expansion, down_kernel_size,
+                          stride=conv_stride, padding=downsample_padding, bias=False),
+                norm_layer(planes * block.expansion)
+            ]
             downsample = nn.Sequential(*downsample_layers)
 
         first_dilation = 1 if dilation in (1, 2) else 2
