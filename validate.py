@@ -3,13 +3,14 @@ from __future__ import division
 from __future__ import print_function
 
 import argparse
-import os
+import csv
 import time
 import torch
 import torch.nn as nn
 import torch.nn.parallel
+from collections import OrderedDict
 
-from model_factory import create_model
+from model_factory import create_model, model_names
 from data import Dataset, create_loader, resolve_data_config
 from utils import accuracy, AverageMeter
 
@@ -46,21 +47,17 @@ parser.add_argument('--no-cuda', dest='no_cuda', action='store_true',
                     help='')
 
 
-def main():
-    args = parser.parse_args()
-
-    if not args.checkpoint and not args.pretrained:
-        args.pretrained = True
+def validate(model_name, args):
 
     # create model
     model = create_model(
-        args.model,
+        model_name,
         num_classes=args.num_classes,
         pretrained=args.pretrained,
         checkpoint_path=args.checkpoint)
 
-    print('Model %s created, param count: %d' %
-          (args.model, sum([m.numel() for m in model.parameters()])))
+    param_count = sum([m.numel() for m in model.parameters()])
+    print('Model %s created, param count: %d' % (args.model,  param_count))
 
     data_config = resolve_data_config(model, args)
 
@@ -121,8 +118,34 @@ def main():
                     rate_avg=input.size(0) / batch_time.avg,
                     loss=losses, top1=top1, top5=top5))
 
-    print(' * Prec@1 {top1.avg:.3f} ({top1a:.3f}) Prec@5 {top5.avg:.3f} ({top5a:.3f})'.format(
-        top1=top1, top1a=100-top1.avg, top5=top5, top5a=100.-top5.avg))
+    results = OrderedDict(model=model_name,
+        top1=round(top1.avg, 3), top1_err=round(100 - top1.avg, 3),
+        top5=round(top5.avg, 3), top5_err=round(100 - top5.avg, 3),
+        loss=round(losses.avg, 4), param_count=round(param_count / 1e6, 2))
+
+    print(' * Prec@1 {:.3f} ({:.3f}) Prec@5 {:.3f} ({:.3f})'.format(
+       results['top1'], results['top1_err'], results['top5'], results['top5_err']))
+
+    return results
+
+
+def main():
+    args = parser.parse_args()
+    if args.model == 'all':
+        args.pretrained = True
+        header_written = False
+        for mn in model_names():
+            result = validate(mn, args)
+            with open('./results-all.csv', mode='a') as cf:
+                dw = csv.DictWriter(cf, fieldnames=result.keys())
+                if not header_written:
+                    dw.writeheader()
+                    header_written = True
+                dw.writerow(result)
+    else:
+        if not args.checkpoint and not args.pretrained:
+            args.pretrained = True
+        validate(args.model, args)
 
 
 if __name__ == '__main__':
