@@ -338,6 +338,13 @@ class GluonResNet(nn.Module):
 
 def gluon_resnet18_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-18 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BasicBlockGl, [2, 2, 2, 2], **kwargs)
     
@@ -349,6 +356,13 @@ def gluon_resnet18_v1b(pretrained=False, **kwargs):
 
 def gluon_resnet34_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-34 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BasicBlockGl, [3, 4, 6, 3], **kwargs)
     
@@ -360,6 +374,13 @@ def gluon_resnet34_v1b(pretrained=False, **kwargs):
 
 def gluon_resnet50_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 6, 3], **kwargs)
     
@@ -371,6 +392,13 @@ def gluon_resnet50_v1b(pretrained=False, **kwargs):
 
 def gluon_resnet101_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.00.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], **kwargs)
     
@@ -381,6 +409,13 @@ def gluon_resnet101_v1b(pretrained=False, **kwargs):
 
 def gluon_resnet152_v1b(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 8, 36, 3], **kwargs)
     
@@ -392,6 +427,13 @@ def gluon_resnet152_v1b(pretrained=False, **kwargs):
 
 def gluon_resnet50_v1c(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 6, 3], stem_width=32, deep_stem=True, **kwargs)
@@ -403,6 +445,13 @@ def gluon_resnet50_v1c(pretrained=False, **kwargs):
 
 def gluon_resnet101_v1c(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 23, 3], stem_width=32, deep_stem=True, **kwargs)
@@ -414,6 +463,13 @@ def gluon_resnet101_v1c(pretrained=False, **kwargs):
 
 def gluon_resnet152_v1c(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.00
     """
     model = GluonResNet(
         BottleneckGl, [3, 8, 36, 3], stem_width=32, deep_stem=True, **kwargs)
@@ -426,6 +482,13 @@ def gluon_resnet152_v1c(pretrained=False, **kwargs):
 
 def gluon_resnet50_v1d(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 6, 3], stem_width=32, deep_stem=True, avg_down=True, **kwargs)
@@ -438,6 +501,13 @@ def gluon_resnet50_v1d(pretrained=False, **kwargs):
 
 def gluon_resnet101_v1d(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 23, 3], stem_width=32, deep_stem=True, avg_down=True, **kwargs)
@@ -449,6 +519,13 @@ def gluon_resnet101_v1d(pretrained=False, **kwargs):
 
 def gluon_resnet152_v1d(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 8, 36, 3], stem_width=32, deep_stem=True, avg_down=True, **kwargs)
@@ -461,6 +538,13 @@ def gluon_resnet152_v1d(pretrained=False, **kwargs):
 
 def gluon_resnet50_v1e(pretrained=False, **kwargs):
     """Constructs a ResNet-50-V1e model. No pretrained weights for any 'e' variants
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 6, 3], stem_width=64, deep_stem=True, avg_down=True, **kwargs)
@@ -472,6 +556,13 @@ def gluon_resnet50_v1e(pretrained=False, **kwargs):
 
 def gluon_resnet101_v1e(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 23, 3], stem_width=64, deep_stem=True, avg_down=True, **kwargs)
@@ -483,6 +574,13 @@ def gluon_resnet101_v1e(pretrained=False, **kwargs):
 
 def gluon_resnet152_v1e(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 8, 36, 3], stem_width=64, deep_stem=True, avg_down=True, **kwargs)
@@ -495,6 +593,13 @@ def gluon_resnet152_v1e(pretrained=False, **kwargs):
 
 def gluon_resnet50_v1s(pretrained=False, **kwargs):
     """Constructs a ResNet-50 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 6, 3], stem_width=64, deep_stem=True, **kwargs)
     
@@ -506,6 +611,13 @@ def gluon_resnet50_v1s(pretrained=False, **kwargs):
 
 def gluon_resnet101_v1s(pretrained=False, **kwargs):
     """Constructs a ResNet-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], stem_width=64, deep_stem=True, **kwargs)
     
@@ -517,6 +629,13 @@ def gluon_resnet101_v1s(pretrained=False, **kwargs):
 
 def gluon_resnet152_v1s(pretrained=False, **kwargs):
     """Constructs a ResNet-152 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 8, 36, 3], stem_width=64, deep_stem=True, **kwargs)
     
@@ -528,6 +647,13 @@ def gluon_resnet152_v1s(pretrained=False, **kwargs):
 
 def gluon_resnext50_32x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt50-32x4d model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 6, 3], cardinality=32, base_width=4, **kwargs)
     
@@ -539,6 +665,13 @@ def gluon_resnext50_32x4d(pretrained=False, **kwargs):
 
 def gluon_resnext101_32x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], cardinality=32, base_width=4, **kwargs)
     
@@ -550,6 +683,13 @@ def gluon_resnext101_32x4d(pretrained=False, **kwargs):
 
 def gluon_resnext101_64x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt-101 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 4, 23, 3], cardinality=64, base_width=4, **kwargs)
     
@@ -561,6 +701,13 @@ def gluon_resnext101_64x4d(pretrained=False, **kwargs):
 
 def gluon_resnext152_32x4d(pretrained=False, **kwargs):
     """Constructs a ResNeXt152-32x4d model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(BottleneckGl, [3, 8, 36, 3], cardinality=32, base_width=4, **kwargs)
     
@@ -571,6 +718,13 @@ def gluon_resnext152_32x4d(pretrained=False, **kwargs):
 
 def gluon_seresnext50_32x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt50-32x4d model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 6, 3], cardinality=32, base_width=4, use_se=True, **kwargs)
@@ -583,6 +737,13 @@ def gluon_seresnext50_32x4d(pretrained=False, **kwargs):
 
 def gluon_seresnext101_32x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt-101-32x4d model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.00
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 23, 3], cardinality=32, base_width=4, use_se=True, **kwargs)
@@ -595,6 +756,13 @@ def gluon_seresnext101_32x4d(pretrained=False, **kwargs):
 
 def gluon_seresnext101_64x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt-101-64x4d model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 4, 23, 3], cardinality=64, base_width=4, use_se=True, **kwargs)
@@ -607,6 +775,13 @@ def gluon_seresnext101_64x4d(pretrained=False, **kwargs):
 
 def gluon_seresnext152_32x4d(pretrained=False, **kwargs):
     """Constructs a SEResNeXt152-32x4d model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 8, 36, 3], cardinality=32, base_width=4, use_se=True, **kwargs)
@@ -618,6 +793,13 @@ def gluon_seresnext152_32x4d(pretrained=False, **kwargs):
 
 def gluon_senet154(pretrained=False, **kwargs):
     """Constructs an SENet-154 model.
+
+    Args:
+        pretrained (bool): If True, returns a model pre-trained on ImageNet-1K
+        
+        **kwargs : Keyword args passed to model __init__
+            dilated (bool): If True, enable dilation and yield stride-8 model, default=False
+            drop_rate (float): The dropout rate for training, default=0.0
     """
     model = GluonResNet(
         BottleneckGl, [3, 8, 36, 3], cardinality=64, base_width=4, use_se=True,

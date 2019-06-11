@@ -50,3 +50,16 @@ Original ResNet-V1, ResNet-V2 (bn-act-conv), and SE-ResNet (stride in first bott
 | seresnext101_32x4d | 80.902 (19.098) | 95.294 (4.706)  | 48.96       | 
 | resnet152_v1s      | 81.012 (18.988) | 95.416 (4.584)  | 60.32       | 
 | senet154           | 81.224 (18.776) | 95.356 (4.644)  | 115.09      | 
+
+
+## PyTorch Hub
+
+Models can be access via the PyTorch Hub API
+
+```
+>>> torch.hub.list('rwightman/pytorch-pretrained-gluonresnet')
+['gluon_resnet18_v1b', ...]
+>>> model = torch.hub.load('rwightman/pytorch-pretrained-gluonresnet', 'gluon_resnet50_v1d', pretrained=True)
+>>> model.eval()
+>>> output = model(torch.randn(1,3,224,224))
+```
